@@ -14,7 +14,40 @@
 
 # 4.3 Apollo Client (12:06)
 
+- Apollo - Client 아폴로 클라이언트 연결해줌, LocalState를 리덕스 대신 사용할거임, 로그인 처리.
+
 # 4.4 First Hooks Query (8:0
+
+- 아폴로 훅 사용해보기. gql이 원래는 graphql-tag에서 가져왔는데, apollo-boost에서 가져왔네, 클라이언트도,
+- useQuery는 쿼리문을 넣고, data,error,loading 을 반환 const { data, error, loading } = useQuery(GET_DOGS);
+- 쿼리문에 @client를 통해, localState에 접근한다.
+
+```js
+...
+import { gql } from "apollo-boost";
+import { useQuery } from "react-apollo-hooks";
+
+const QUERY = gql`
+  {
+    isLoggedIn @client
+  }
+`;
+
+export default () => {
+  const { data } = useQuery(QUERY);
+  console.log(data);
+  return (
+    <>
+      <ThemeProvider theme={Theme}>
+        <>
+          <AppRouter isLoggedIn={false} />
+          <GlobalStyles />
+        </>
+      </ThemeProvider>
+    </>
+  );
+};
+```
 
 # 추가학습 리액트 훅
 

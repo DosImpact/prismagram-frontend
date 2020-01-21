@@ -2,10 +2,13 @@
 
 # 4.0 CRA Cleanup and Installation (5:45)
 
-yarn add styled-components react-router-dom prop-types react-helmet styled-reset
-yarn add react-apollo-hooks apollo-boost graphql graphql-tag
+- yarn add styled-components react-router-dom prop-types react-helmet styled-reset
+- yarn add react-apollo-hooks apollo-boost graphql graphql-tag
+- yarn add react-toastify
 
 # 4.1 GlobalStyles and Theme (12:06)
+
+- Styles - 글로벌 스타일 적용 | Theme 색상을 따로 빼서 -> ThemeProvider 컴포넌트 사용. from "styled-component"
 
 # 4.2 React Router (9:15)
 

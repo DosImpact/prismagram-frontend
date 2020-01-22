@@ -93,13 +93,38 @@ export default function App() {
 
 # 5.1 Footer and Auth UI part Two (5:00)
 
+- 다자인 작업1
+
 # 5.2 Footer and Auth UI part Three (5:00)
 
+- 다자인 작업2
+
 # 5.3 Auth Form with Hooks (10:36)
+
+- Input 후킹
+
+```
+//input 훅 정리
+
+//리액트 컴포넌트의 특성을 이용 + useState(get,set)을 이용해, 간단하게, 해당 컴포넌트의 onChange value를 다룰 수 있다.
+1. Input 컴포넌트 정의 -> 훅의 get,set props가 들어오면, value와,onChange 연결하기
+2. 훅정의 -> 값 받으면 -> value,onChange를 반환해준다.
+3. 훅사용 -> useInput("") 기본값 정의 및 반환하는 (배열) -> 컴포넌트에 ...오퍼레이션 으로 후킹.
+
+```
 
 # 5.4 requestSecret Mutation and Refactor (12:03)
 
 # 5.5 Toastify and createAccount Mutation (14:17)
+
+- Toastify는 웹 페이지 구석에서 나오는 알림창 같은건데, 이뻐서 좋다.
+
+```
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+        <ToastContainer position={toast.POSITION.BOTTOM_LEFT} />
+```
 
 # 5.6 createAccount Mutation part Two (13:03)
 

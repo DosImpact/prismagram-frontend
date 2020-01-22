@@ -2,13 +2,16 @@
 
 # 4.0 CRA Cleanup and Installation (5:45)
 
+- 환경 설치
+
 - yarn add styled-components react-router-dom prop-types react-helmet styled-reset
 - yarn add react-apollo-hooks apollo-boost graphql graphql-tag
 - yarn add react-toastify
 
 # 4.1 GlobalStyles and Theme (12:06)
 
-- Styles - 글로벌 스타일 적용 | Theme 색상을 따로 빼서 -> ThemeProvider 컴포넌트 사용. from "styled-component"
+- Styles - 글로벌 스타일 컴포넌트 적용
+- Theme컴포넌트 기능!! : 색상을 따로 빼서 -> ThemeProvider 컴포넌트 사용. from "styled-component"
 
 # 4.2 React Router (9:15)
 
@@ -80,3 +83,26 @@ export default function App() {
   );
 }
 ```
+
+# 5 Frontend: Authorization Routes
+
+# 5.0 Auth Route UI part One (6:50)
+
+- 훅을 써서 Container,Presenter를 되도록 줄이겠지만, 필요하다면 사용해도 된다.
+- Auth.js 작업
+
+# 5.1 Footer and Auth UI part Two (5:00)
+
+# 5.2 Footer and Auth UI part Three (5:00)
+
+# 5.3 Auth Form with Hooks (10:36)
+
+# 5.4 requestSecret Mutation and Refactor (12:03)
+
+# 5.5 Toastify and createAccount Mutation (14:17)
+
+# 5.6 createAccount Mutation part Two (13:03)
+
+# 5.7 createAccount Mutation part Three (8:30)
+
+# 5.8 confirmSecret + Log In Mutation (16:03)

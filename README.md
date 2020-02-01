@@ -10,8 +10,8 @@
 
 # 4.1 GlobalStyles and Theme (12:06)
 
-- Styles - 글로벌 스타일 컴포넌트 적용
-- Theme컴포넌트 기능!! : 색상을 따로 빼서 -> ThemeProvider 컴포넌트 사용. from "styled-component"
+- Styles / 글로벌 스타일 컴포넌트 적용 ( 폰트 , reset css ,)
+- Styles / Theme컴포넌트 기능!! : 색상을 따로 빼서 -> ThemeProvider 컴포넌트 사용. from "styled-component"
 
 # 4.2 React Router (9:15)
 

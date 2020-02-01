@@ -15,11 +15,75 @@
 
 # 4.2 React Router (9:15)
 
+- 로그인이 된 경우와 안된 경우를 route해서 처리를 했다. 캬 ~ 애초에 분리를 시켜버리네.
+
 # 4.3 Apollo Client (12:06)
 
-- Apollo - Client 아폴로 클라이언트 연결해줌, LocalState를 리덕스 대신 사용할거임, 로그인 처리.
+- Apollo - Client 아폴로 클라이언트 연결해줌
+- ApolloClient - ClientState에 미니 리덕스 탑재 : 로그인 처리.
 
-# 4.4 First Hooks Query (8:0
+# //resolvers의 세번쨰 인자가 의문이네... 두번째 인자도, 기본 리소버랑 다른 매커니즘인듯
+
+```js
+------------------------------------------------------------------------- 클라이언트 state에 들어갈 디폴트(스테이트)와 리소버 정의
+// defaults는 Graphql문법이 아닌, state  개념이다.
+export const defaults = {
+  isLoggedIn: Boolean(localStorage.getItem("token")) || false
+};
+//resolvers의 세번쨰 인자가 의문이네... 두번째 인자도, 기본 리소버랑 다른 매커니즘인듯
+export const resolvers = {
+  Mutation: {
+    logUserIn: (_, { token }, { cache }) => {
+      localStorage.setItem("token", token);
+      cache.writeData({
+        data: {
+          isLoggedIn: true
+        }
+      });
+      return null;
+    },
+    logUserOut: (_, __, { cache }) => {
+      localStorage.removeItem("token");
+      window.location.reload();
+      return null;
+    }
+  }
+};
+------------------------------------------------------------------------- ApolloClient에 clientState 넣기
+import ApolloClient from "apollo-boost";
+import { defaults, resolvers } from "./LocalState";
+
+export default new ApolloClient({
+  uri: "http://localhost:4000",
+  clientState: {
+    defaults,
+    resolvers
+  }
+});
+
+------------------------------------------------------------------------- @client를 통해 clientState임을 알려
+const QUERY = gql`
+  {
+    isLoggedIn @client
+  }
+`;
+------------------------------------------------------------------------- 아폴로 훅을 통해. 데이터를 받아옴.
+import { useQuery } from "react-apollo-hooks";
+
+export default () => {
+  const {
+    data: { isLoggedIn }
+  } = useQuery(QUERY);
+
+  return (
+    <ThemeProvider theme={Theme}>
+        <Router isLoggedIn={isLoggedIn} />
+    </ThemeProvider>
+  );
+};
+```
+
+# 4.4 First Hooks Query
 
 - 아폴로 훅 사용해보기. gql이 원래는 graphql-tag에서 가져왔는데, apollo-boost에서 가져왔네, 클라이언트도,
 - useQuery는 쿼리문을 넣고, data,error,loading 을 반환 const { data, error, loading } = useQuery(GET_DOGS);

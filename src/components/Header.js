@@ -2,13 +2,24 @@ import React from "react";
 import styled from "styled-components";
 import { Link, withRouter } from "react-router-dom";
 import { gql } from "apollo-boost";
+import { useQuery } from "react-apollo-hooks";
 
 import Input from "./Input";
 import useInput from "../Hooks/useInput";
 import { Compass, HeartEmpty, User, Logo } from "./Icons";
 
+const ME = gql`
+  {
+    me {
+      name
+    }
+  }
+`;
+
 const HeaderComponent = ({ history }) => {
   const search = useInput("");
+  const meQuery = useQuery(ME);
+  console.log(meQuery);
   const onSearchSubmit = e => {
     e.preventDefault();
     history.push(`/search?term=${search.value}`);

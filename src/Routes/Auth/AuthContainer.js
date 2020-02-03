@@ -52,6 +52,7 @@ export default () => {
   });
   const [confirmSecretMutation] = useMutation(CONFIRM_SECRET, {
     variables: {
+      email: email.value,
       secret: secret.value
     }
   });

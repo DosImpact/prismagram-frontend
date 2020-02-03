@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import AuthPresenter from "./AuthPresenter";
 import useInput from "../../Hooks/useInput";
 import { useMutation } from "react-apollo-hooks";
-import { LOG_IN, CREATE_ACCOUNT } from "./AuthQueries";
+import { LOG_IN, CREATE_ACCOUNT, CONFIRM_SECRET } from "./AuthQueries";
 import { toast } from "react-toastify";
 /**
  * 두가지 액션 -> 계정을 만들거나 , 계정을 로그인 하려고 requestSecret하거나
@@ -50,7 +50,11 @@ export default () => {
       lastName: lastName.value
     }
   });
-
+  const [confirmSecretMutation] = useMutation(CONFIRM_SECRET, {
+    variables: {
+      secret: secret.value
+    }
+  });
   const onSubmit = async e => {
     e.preventDefault();
     if (action === "logIn") {
@@ -74,7 +78,9 @@ export default () => {
         lastName.value !== ""
       ) {
         try {
-          const { createAccount } = await createAccountMutation();
+          const {
+            data: { createAccount }
+          } = await createAccountMutation();
           if (!createAccount) {
             toast.success("Account Created! ");
             setTimeout(() => setAction("logIn"), 10);
@@ -88,6 +94,17 @@ export default () => {
         toast.error("All field are required");
       }
     } else if (action === "confirm") {
+      if (secret.value !== "") {
+        try {
+          const {
+            data: { confirmSecret }
+          } = await confirmSecretMutation();
+          console.log(confirmSecret);
+          //TODO : log user in JWT
+        } catch {
+          toast.error("cant confirm secret");
+        }
+      }
     }
   };
 

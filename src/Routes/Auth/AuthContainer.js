@@ -95,9 +95,13 @@ export default () => {
           //TODO : log user in JWT
           if (token !== "" && token !== undefined) {
             localLogInMutation({ variables: { token } });
+          } else {
+            throw Error();
           }
         } catch {
-          toast.error("cant confirm secret");
+          toast.error(
+            "cant confirm secret, wait a miniute and check your email again "
+          );
         }
       }
     }

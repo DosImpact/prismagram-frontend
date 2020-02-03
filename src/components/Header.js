@@ -1,12 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import Input from "./Input";
 import useInput from "../Hooks/useInput";
 import { Compass, HeartEmpty, User } from "./Icons";
 
-export default () => {
+const HeaderComponent = ({ history }) => {
   const search = useInput("");
+  const onSearchSubmit = e => {
+    e.preventDefault();
+    history.push(`/search?term=${search.value}`);
+  };
   return (
     <Header>
       <HeaderWrapper>
@@ -23,7 +27,7 @@ export default () => {
           </Link>
         </HeaderColumn>
         <HeaderColumn>
-          <form>
+          <form onSubmit={onSearchSubmit}>
             <SearchInput {...search} placeholder="Search" />
           </form>
         </HeaderColumn>
@@ -42,6 +46,8 @@ export default () => {
     </Header>
   );
 };
+export default withRouter(HeaderComponent);
+
 const Header = styled.header`
   width: 100%;
   border: 0;

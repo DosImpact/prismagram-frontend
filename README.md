@@ -223,3 +223,13 @@ export const LOG_IN = gql`
 ```
 
 # 5.8 confirmSecret + Log In Mutation (16:03)
+
+### 로컬 JWT 저장 구현, 로컬 스테이츠
+
+# 6.0 Header UI (10:00)
+
+### 아이콘스
+
+# 6.1 Header Logic part One (13:44)
+
+# 6.2 Header Logic part Two (7:22)

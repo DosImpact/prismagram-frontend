@@ -58,7 +58,7 @@ export default ({
     <Form>
       {action === "logIn" ? (
         <form onSubmit={onSubmit}>
-          <Input placeholder={"Username"} {...username} />
+          <Input placeholder={"Email"} {...email} />
           <Button text={"Log in"} />
         </form>
       ) : (

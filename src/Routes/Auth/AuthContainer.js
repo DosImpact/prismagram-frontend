@@ -4,7 +4,24 @@ import useInput from "../../Hooks/useInput";
 import { useMutation } from "react-apollo-hooks";
 import { LOG_IN, CREATE_ACCOUNT } from "./AuthQueries";
 import { toast } from "react-toastify";
+/**
+ * 두가지 액션 -> 계정을 만들거나 , 계정을 로그인 하려고 requestSecret하거나
+ * action (Login) :  서밋 핸들 ->  await requestSecret();
+ * action (singUp) : 서밋 핸들 ->  await createAccount();
+ *
+ * 서버에서 cathe error를 통해, 애러를 잡고, 잡은 메시지가 프론트까지 던져진다.
+ * 
 
+ */
+/*
+  
+  const [requestSecret] = useMutation(LOG_IN, {
+    variables: { email: email.value }
+  });
+   *           
+   const secret = await requestSecret();
+   console.log(secret);
+ */
 export default () => {
   const [action, setAction] = useState("logIn");
   const username = useInput("");
@@ -37,7 +54,10 @@ export default () => {
       if (email.value !== "") {
         try {
           await requestSecret();
+          // const secret = await requestSecret();
+          // console.log(secret);
         } catch (error) {
+          console.log(error);
           toast.error("Can't request secret, try again");
         }
       } else {
@@ -51,7 +71,7 @@ export default () => {
         lastName.value !== ""
       ) {
         try {
-          createAccount();
+          await createAccount();
         } catch (error) {
           toast.error("Can't create Account, try again");
         }

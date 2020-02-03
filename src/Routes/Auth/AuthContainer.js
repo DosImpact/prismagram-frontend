@@ -2,26 +2,14 @@ import React, { useState } from "react";
 import AuthPresenter from "./AuthPresenter";
 import useInput from "../../Hooks/useInput";
 import { useMutation } from "react-apollo-hooks";
-import { LOG_IN, CREATE_ACCOUNT, CONFIRM_SECRET } from "./AuthQueries";
+import {
+  LOG_IN,
+  CREATE_ACCOUNT,
+  CONFIRM_SECRET,
+  LOCAL_LOG_IN
+} from "./AuthQueries";
 import { toast } from "react-toastify";
-/**
- * 두가지 액션 -> 계정을 만들거나 , 계정을 로그인 하려고 requestSecret하거나
- * action (Login) :  서밋 핸들 ->  await requestSecret();
- * action (singUp) : 서밋 핸들 ->  await createAccount();
- *
- * 서버에서 cathe error를 통해, 애러를 잡고, 잡은 메시지가 프론트까지 던져진다.
- * 
 
- */
-/*
-  
-  const [requestSecret] = useMutation(LOG_IN, {
-    variables: { email: email.value }
-  });
-   *           
-   const secret = await requestSecret();
-   console.log(secret);
- */
 export default () => {
   const [action, setAction] = useState("logIn");
   const name = useInput("");
@@ -56,6 +44,9 @@ export default () => {
       secret: secret.value
     }
   });
+
+  const [localLogInMutation] = useMutation(LOCAL_LOG_IN);
+
   const onSubmit = async e => {
     e.preventDefault();
     if (action === "logIn") {
@@ -98,10 +89,13 @@ export default () => {
       if (secret.value !== "") {
         try {
           const {
-            data: { confirmSecret }
+            data: { confirmSecret: token }
           } = await confirmSecretMutation();
-          console.log(confirmSecret);
+          console.log(token);
           //TODO : log user in JWT
+          if (token !== "" && token !== undefined) {
+            localLogInMutation({ variables: { token } });
+          }
         } catch {
           toast.error("cant confirm secret");
         }

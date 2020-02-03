@@ -47,7 +47,7 @@ const Form = styled(Box)`
 export default ({
   setAction,
   action,
-  username,
+  name,
   password,
   firstName,
   lastName,
@@ -66,7 +66,7 @@ export default ({
           <Input placeholder={"First name"} {...firstName} />
           <Input placeholder={"Last name"} {...lastName} />
           <Input placeholder={"Email"} {...email} type="email" />
-          <Input placeholder={"Username"} {...username} />
+          <Input placeholder={"name"} {...name} />
 
           <Button text={"Sign up"} />
         </form>

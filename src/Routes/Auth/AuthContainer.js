@@ -24,7 +24,7 @@ import { toast } from "react-toastify";
  */
 export default () => {
   const [action, setAction] = useState("logIn");
-  const username = useInput("");
+  const name = useInput("");
   const firstName = useInput("");
   const lastName = useInput("");
   const email = useInput("");
@@ -39,10 +39,10 @@ export default () => {
     },
     variables: { email: email.value }
   });
-  const [createAccount] = useMutation(CREATE_ACCOUNT, {
+  const [createAccountMutation] = useMutation(CREATE_ACCOUNT, {
     variables: {
       email: email.value,
-      username: username.value,
+      name: name.value,
       firstName: firstName.value,
       lastName: lastName.value
     }
@@ -66,14 +66,19 @@ export default () => {
     } else if (action === "signUp") {
       if (
         email.value !== "" &&
-        username.value !== "" &&
+        name.value !== "" &&
         firstName.value !== "" &&
         lastName.value !== ""
       ) {
         try {
-          await createAccount();
+          const { createAccount } = await createAccountMutation();
+          if (!createAccount) {
+            toast.success("Account Created! ");
+          } else {
+            toast.error("Can't create Account, try again");
+          }
         } catch (error) {
-          toast.error("Can't create Account, try again");
+          toast.error(error.message);
         }
       } else {
         toast.error("All field are required");
@@ -85,7 +90,7 @@ export default () => {
     <AuthPresenter
       setAction={setAction}
       action={action}
-      username={username}
+      name={name}
       firstName={firstName}
       lastName={lastName}
       email={email}

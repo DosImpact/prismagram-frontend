@@ -21,7 +21,9 @@ export const CREATE_ACCOUNT = gql`
     )
   }
 `;
-/**
- * 아폴로 훅 : useMutation
- * gql + 변수
- */
+
+export const CONFIRM_SECRET = gql`
+  mutation confirmSecret($secret: String!, $email: String!){
+    confirmSecret(secret: $secret!, email: $email)
+  }
+`;

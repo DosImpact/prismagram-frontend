@@ -87,6 +87,7 @@ export default () => {
       } else {
         toast.error("All field are required");
       }
+    } else if (action === "confirm") {
     }
   };
 

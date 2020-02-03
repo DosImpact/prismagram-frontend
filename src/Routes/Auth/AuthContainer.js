@@ -27,14 +27,17 @@ export default () => {
   const name = useInput("");
   const firstName = useInput("");
   const lastName = useInput("");
+  const secret = useInput("");
   const email = useInput("");
-
   const [requestSecret] = useMutation(LOG_IN, {
     update: (_, { data }) => {
       const { requestSecret } = data;
       if (!requestSecret) {
         toast.error("You dont have an account yet, create one");
         //setTimeout(() => setAction("signUp"), 3000); 자동으로 가입하기 창으로 넘어감.
+      } else {
+        toast.success("login secret sended!!");
+        setAction("confirm");
       }
     },
     variables: { email: email.value }
@@ -74,6 +77,7 @@ export default () => {
           const { createAccount } = await createAccountMutation();
           if (!createAccount) {
             toast.success("Account Created! ");
+            setTimeout(() => setAction("logIn"), 10);
           } else {
             toast.error("Can't create Account, try again");
           }
@@ -95,6 +99,7 @@ export default () => {
       lastName={lastName}
       email={email}
       onSubmit={onSubmit}
+      secret={secret}
     ></AuthPresenter>
   );
 };

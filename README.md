@@ -192,6 +192,34 @@ import "react-toastify/dist/ReactToastify.css";
 
 # 5.6 createAccount Mutation part Two (13:03)
 
+pass
+
 # 5.7 createAccount Mutation part Three (8:30)
+
+### useMutation 사용법 2가지
+
+- useMutation 은 update,variables 을통해, 바로 udpate로직을 만들거나 |
+- const [createAccountMutation] = useMutation 결과를 await 하여 데이터 받아 로직을 처리할수 있다.
+
+```
+          const { createAccount } = await createAccountMutation();
+          if (!createAccount) {
+            toast.success("Account Created! ");
+          }
+```
+
+### Auth | Container-Queires-Presenter 한번에 같이보면됨.
+
+- 1. 로그인 로직
+
+```
+import { gql } from "apollo-boost";
+
+export const LOG_IN = gql`
+  mutation requestSecret($email: String!) {
+    requestSecret(email: $email)
+  }
+`;
+```
 
 # 5.8 confirmSecret + Log In Mutation (16:03)

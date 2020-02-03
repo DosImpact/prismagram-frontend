@@ -9,7 +9,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import Theme from "../Styles/Theme";
-import Router from "./Router";
+import Routes from "./Routes";
 import Footer from "./Footer";
 import Header from "./Header";
 
@@ -37,7 +37,7 @@ export default () => {
           <Wrapper>
             <>
               <Header />
-              <Router isLoggedIn={isLoggedIn} />
+              <Routes isLoggedIn={isLoggedIn} />
               <Footer />
             </>
           </Wrapper>

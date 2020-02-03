@@ -230,6 +230,12 @@ export const LOG_IN = gql`
 
 ### 아이콘스
 
+[https://iconmonstr.com/instagram-11-svg/](https://iconmonstr.com/instagram-11-svg/)
+
+### Header 컴포넌트 완성 | 아이콘 넣기 | 스타일 컴포넌트
+
 # 6.1 Header Logic part One (13:44)
+
+### Search input submit 시 serach term으로 routing 작업 |
 
 # 6.2 Header Logic part Two (7:22)

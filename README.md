@@ -242,6 +242,9 @@ export const LOG_IN = gql`
 
 # 7.0 Getting the Feed and Loader Component (11:43)
 
+- Loader.js 작성했음.
+- Feed.js 작성
+
 # 7.1 Post Component part One (16:53)
 
 # 7.2 Post Component part Two (16:07)

@@ -62,7 +62,7 @@ const Timestamp = styled.span`
 `;
 
 export default ({
-  user: { username, avatar },
+  user: { name, avatar },
   location,
   files,
   isLiked,
@@ -73,7 +73,7 @@ export default ({
     <Header>
       <Avatar size="sm" url={avatar} />
       <UserColumn>
-        <FatText text={username} />
+        <FatText text={name} />
         <Location>{location}</Location>
       </UserColumn>
     </Header>

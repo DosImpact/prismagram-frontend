@@ -15,7 +15,7 @@ const FEED_QUERY = gql`
       user {
         id
         avatar
-        username
+        name
       }
       files {
         id
@@ -28,19 +28,12 @@ const FEED_QUERY = gql`
         text
         user {
           id
-          username
+          name
         }
       }
       createdAt
     }
   }
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 80vh;
 `;
 
 export default () => {
@@ -51,6 +44,7 @@ export default () => {
         <title>Feed | Prismagram</title>
       </Helmet>
       {loading && <Loader />}
+      {!loading && console.log(data)}
       {!loading &&
         data &&
         data.seeFeed &&
@@ -71,3 +65,10 @@ export default () => {
     </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 80vh;
+`;

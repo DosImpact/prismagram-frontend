@@ -239,3 +239,19 @@ export const LOG_IN = gql`
 ### Search input submit 시 serach term으로 routing 작업 |
 
 # 6.2 Header Logic part Two (7:22)
+
+# 7.0 Getting the Feed and Loader Component (11:43)
+
+# 7.1 Post Component part One (16:53)
+
+# 7.2 Post Component part Two (16:07)
+
+### 인스타에서 좋아요를 눌렀다 안눌렀다하면, 바로 like에 반영되는데, 이는 useState를 이용해서, 반응을 기록하는 척 한다.
+
+# 7.3 Post Component part Three (17:00)
+
+# 7.4 toggleLike on Post Component (14:15)
+
+# 7.5 createComment on Post Component part One (15:49)
+
+# 7.6 createComment on Post Component part Two (13:59)

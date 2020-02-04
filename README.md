@@ -249,6 +249,8 @@ export const LOG_IN = gql`
 
 # 7.2 Post Component part Two (16:07)
 
+- Avatar.js 컴포넌트
+
 ### 인스타에서 좋아요를 눌렀다 안눌렀다하면, 바로 like에 반영되는데, 이는 useState를 이용해서, 반응을 기록하는 척 한다.
 
 # 7.3 Post Component part Three (17:00)

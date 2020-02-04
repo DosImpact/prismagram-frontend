@@ -36,7 +36,7 @@ export default () => {
         <HashRouter>
           <Wrapper>
             <>
-              <Header />
+              {isLoggedIn && <Header />}
               <Routes isLoggedIn={isLoggedIn} />
               <Footer />
             </>

@@ -262,11 +262,16 @@ export const LOG_IN = gql`
 
 # 7.4 toggleLike on Post Component (14:15)
 
+### 데이터 베이스를 기다리기 싫으면 FakeData를 사용자에게 보여주어서, 빠른 웹사이트라고 느끼게 해줘라.
+
 - 좋아요 토글 기능 제작
 - 1. 빠른 앱 반응 : 좋아요 토글시 - 상태 isLikeS,likeCountS 변화후 -> await 뮤테이션
 - 2. 느린 앱 반응 : 좋아요 토글시 - await 뮤테이션 후 -> 상태 isLikeS,likeCountS 변화
 - 3. 빠른 앱 반응 :(애초에 await를 안하기) : 좋아요 토글시 - 뮤테이션 후 -> 상태 isLikeS,likeCountS 변화
 
 # 7.5 createComment on Post Component part One (15:49)
+
+- 코맨트 컴포넌트 만들기 : 이슈 : 엔터를 치면 TextArea는 개행을 함-> onKeyPress 이벤트를 따로 파서 -> e.keyCode가 32면(즉 엔터) 면 코멘트 뮤테이션 실행 하는 로직
+- onKeyUp 이랑 onKeyDown도 있는데, onKeyUp으로 엔터를 처리하면 -> 이미 press 되어서 textarea가 개행을 한다 -> preventdefaultEvent를 할수가 없어
 
 # 7.6 createComment on Post Component part Two (13:59)

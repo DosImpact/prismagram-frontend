@@ -1,20 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { Link, withRouter } from "react-router-dom";
-import { gql } from "apollo-boost";
 import { useQuery } from "react-apollo-hooks";
 
 import Input from "./Input";
 import useInput from "../Hooks/useInput";
 import { Compass, HeartEmpty, User, Logo } from "./Icons";
-
-const ME = gql`
-  {
-    me {
-      name
-    }
-  }
-`;
+import { ME } from "../SharedQueries";
 
 const HeaderComponent = ({ history }) => {
   const search = useInput("");

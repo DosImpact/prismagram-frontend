@@ -4,6 +4,7 @@ import FatText from "../FatText";
 import Avatar from "../Avatar";
 import { HeartFull, HeartEmpty, Comment as CommentIcon } from "../Icons";
 import TextareaAutosize from "react-autosize-textarea";
+import { Link } from "react-router-dom";
 
 export default ({
   user: { name, avatar },
@@ -17,13 +18,16 @@ export default ({
   toggleLike,
   onKeyPress,
   comments,
-  selfComments
+  selfComments,
+  caption
 }) => (
   <Post>
     <Header>
       <Avatar size="sm" url={avatar} />
       <UserColumn>
-        <FatText text={name} />
+        <Link to={`/${name}`}>
+          <FatText text={name} />
+        </Link>
         <Location>{location}</Location>
       </UserColumn>
     </Header>
@@ -44,17 +48,20 @@ export default ({
         </Button>
       </Buttons>
       <FatText text={likeCount === 1 ? "1 like" : `${likeCount} likes`} />
+      <Caption>
+        <FatText text={name} /> {caption}
+      </Caption>
       {comments && (
         <Comments>
           {comments.map(comment => (
             <Comment key={comment.id}>
-              <FatText text={comment.user.username} />
+              <FatText text={comment.user.name} />
               {comment.text}
             </Comment>
           ))}
           {selfComments.map(comment => (
             <Comment key={comment.id}>
-              <FatText text={comment.user.username} />
+              <FatText text={comment.user.name} />
               {comment.text}
             </Comment>
           ))}
@@ -77,6 +84,9 @@ const Post = styled.div`
   max-width: 600px;
   margin-bottom: 25px;
   user-select: none;
+  a {
+    color: inherit;
+  }
 `;
 
 const Header = styled.header`
@@ -164,4 +174,7 @@ const Comment = styled.li`
   span {
     margin-right: 5px;
   }
+`;
+const Caption = styled.div`
+  margin: 10px 0px;
 `;

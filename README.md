@@ -275,3 +275,27 @@ export const LOG_IN = gql`
 - onKeyUp 이랑 onKeyDown도 있는데, onKeyUp으로 엔터를 처리하면 -> 이미 press 되어서 textarea가 개행을 한다 -> preventdefaultEvent를 할수가 없어
 
 # 7.6 createComment on Post Component part Two (13:59)
+
+# 8 Frontend: Search
+
+# 8.0 Search Screen Queries (15:11)
+
+- Search 관련 쿼리작성 | UserCard작성
+- useQuery에서 쿼리를 스킵하는 조건을 걸수도.
+
+```js
+const { data, loading } = useQuery(SEARCH, {
+  skip: term === undefined,
+  variables: {
+    term
+  }
+});
+```
+
+# 8.1 Search Screen UI Part One (7:00)
+
+# 8.2 Search Screen UI Part Two (11:06)
+
+# 8.3 Follow Button (13:47)
+
+# 8.4 SquarePost Component (15:02)

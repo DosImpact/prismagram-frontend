@@ -20,6 +20,7 @@ const Section = styled.div`
 `;
 
 const SearchPresenter = ({ searchTerm, loading, data }) => {
+  console.log(searchTerm, loading, data);
   if (searchTerm === undefined) {
     return (
       <Wrapper>
@@ -46,6 +47,7 @@ const SearchPresenter = ({ searchTerm, loading, data }) => {
                 isFollowing={user.isFollowing}
                 url={user.avatar}
                 isSelf={user.isSelf}
+                id={user.id}
               />
             ))
           )}
@@ -57,6 +59,12 @@ const SearchPresenter = ({ searchTerm, loading, data }) => {
             data.searchPost.map(post => null)
           )}
         </Section>
+      </Wrapper>
+    );
+  } else {
+    return (
+      <Wrapper>
+        <FatText text="Search for nothing" />
       </Wrapper>
     );
   }

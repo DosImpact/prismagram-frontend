@@ -262,6 +262,11 @@ export const LOG_IN = gql`
 
 # 7.4 toggleLike on Post Component (14:15)
 
+- 좋아요 토글 기능 제작
+- 1. 빠른 앱 반응 : 좋아요 토글시 - 상태 isLikeS,likeCountS 변화후 -> await 뮤테이션
+- 2. 느린 앱 반응 : 좋아요 토글시 - await 뮤테이션 후 -> 상태 isLikeS,likeCountS 변화
+- 3. 빠른 앱 반응 :(애초에 await를 안하기) : 좋아요 토글시 - 뮤테이션 후 -> 상태 isLikeS,likeCountS 변화
+
 # 7.5 createComment on Post Component part One (15:49)
 
 # 7.6 createComment on Post Component part Two (13:59)

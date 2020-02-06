@@ -256,6 +256,10 @@ export const LOG_IN = gql`
 
 # 7.3 Post Component part Three (17:00)
 
+[https://github.com/buildo/react-autosize-textarea](https://github.com/buildo/react-autosize-textarea)
+
+- yarn add react-autosize-textarea
+
 # 7.4 toggleLike on Post Component (14:15)
 
 # 7.5 createComment on Post Component part One (15:49)

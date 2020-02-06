@@ -299,3 +299,13 @@ const { data, loading } = useQuery(SEARCH, {
 # 8.3 Follow Button (13:47)
 
 # 8.4 SquarePost Component (15:02)
+
+- Search Post 끝!!ㅜ ㅜ 복습 천국!
+
+# 9 Frontend: Profile
+
+# 9.0 Profile Screen part One (14:52)
+
+# 9.1 Profile Screen part Two (12:55)
+
+# 9.2 Log Out and Conclusions (5:26)

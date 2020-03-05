@@ -5,8 +5,9 @@
 - 환경 설치
 
 - yarn add styled-components react-router-dom prop-types react-helmet styled-reset
-- yarn add react-apollo-hooks apollo-boost graphql graphql-tag
 - yarn add react-toastify
+  (- yarn add react-apollo-hooks apollo-boost graphql graphql-tag)
+- yarn add @apollo/react-hooks apollo-boost graphql graphql-tag
 
 # 4.1 GlobalStyles and Theme (12:06)
 
